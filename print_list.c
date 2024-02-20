@@ -1,6 +1,7 @@
 #include "sort.h"
 /**
- * insertion_sort_list - Sorts a list of integers using insertion sort algorithm
+ * insertion_sort_list - Sorts a list of integers
+ * using insertion sort algorithm
  *
  * @list: list of integers to be sorted
  * Return: Nothing
@@ -17,7 +18,5 @@ void insertion_sort_list(listint_t **list)
 	next = current->next;
 
 	while (next != NULL)
-	{
 		if (current->n > next->n)
-	}
- }
+}
