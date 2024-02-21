@@ -1,69 +1,52 @@
 #include "sort.h"
 #include <stdio.h>
 
-/**
- * insertion_sort_list - Sorts a doubly linked list in ascending order using
- *                        the Insertion sort algorithm.
- * @list: A pointer to the head of the doubly linked list.
+/*****
+ * insert_sort_list - sorts a list of integers
+ * using insertion sort algorithm
+ *
+ * @list: list of integers to be sorted
+ * Return: Nothing
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *unsorted_node, *sorted_node;
+    listint_t *sorted, *unsorted;
 
-	if (!list || !*list || !(*list)->next)
-		return;
+    if (list == NULL || *list == NULL || (*list)->next == NULL)
+        return;
 
-	unsorted_node = (*list)->next;
-	sorted_node = *list;
+    sorted = *list;
+    unsorted = sorted->next;
 
-	while (unsorted_node)
-	{
-		sorted_node = unsorted_node->prev;
+    while (unsorted != NULL) {
+        listint_t *prev = unsorted->prev;
+        listint_t *current = sorted;
 
-		while (sorted_node && sorted_node->n > unsorted_node->n)
-		{
-			/* Remove unsorted_node from the list */
-			if (unsorted_node->prev)
-				unsorted_node->prev->next = unsorted_node->next;
-			if (unsorted_node->next)
-				unsorted_node->next->prev = unsorted_node->prev;
+        /* Find the correct position to insert unsorted node */
+        while (current != unsorted && current->n < unsorted->n) {
+            prev = current;
+            current = current->next;
+        }
 
-			/* Insert unsorted_node before sorted_node */
-			unsorted_node->next = sorted_node;
-			unsorted_node->prev = sorted_node->prev;
+        /* Remove unsorted node from the list */
+        if (prev != NULL)
+            prev->next = unsorted->next;
+        else
+            *list = unsorted->next;
 
-			sorted_node->prev = unsorted_node;
-			if (unsorted_node->prev)
-				unsorted_node->prev->next = unsorted_node;
-			else
-				*list = unsorted_node;
+        /* Insert unsorted node in the correct position */
+        if (current != NULL) {
+            unsorted->next = current;
+            unsorted->prev = current->prev;
+            current->prev = unsorted;
+            if (unsorted->prev != NULL)
+                unsorted->prev->next = unsorted;
+            else
+                *list = unsorted;
+        }
 
-			print_list(*list);
+        print_list(*list);
 
-			sorted_node = unsorted_node->prev;
-		}
-
-		unsorted_node = unsorted_node->next;
-	}
-}
-
-/**
- * print_list - Prints a list of integers
- *
- * @list: The list to be printed
- */
-void print_list(const listint_t *list)
-{
-	int i;
-
-	i = 0;
-	while (list)
-	{
-		if (i > 0)
-			printf(", ");
-		printf("%d", list->n);
-		++i;
-		list = list->next;
-	}
-	printf("\n");
+        unsorted = unsorted->next;
+    }
 }
