@@ -16,11 +16,12 @@ next = current->next;
 /* The sorted list starts with the first node */
 sorted = current;
 sorted_prev = NULL;
-while (next != NULL) {
-/* If the current node is smaller than 
-* the previous node in the sorted list,
+while (next != NULL) 
+{
+/* If the current node is smaller than the previous node in the sorted list,
 * we need to insert it before that node */
-if (current->n < sorted_prev->n) {
+if (current->n < sorted_prev->n) 
+{
 /* Remove the current node from the list */
 if (current->prev != NULL)
 current->prev->next = current->next;
@@ -37,9 +38,10 @@ sorted_prev->prev = current;
 else
 *list = current;
 sorted_prev = current;
-} else {
-/* Otherwise, we just need to update 
-* the sorted_prev pointer */
+}
+else 
+{
+/* Otherwise, we just need to update the sorted_prev pointer */
 sorted_prev = next;
 }
 /* Move to the next pair of nodes */
