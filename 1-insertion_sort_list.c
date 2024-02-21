@@ -1,8 +1,8 @@
 #include "sort.h"
 #include <stdio.h>
 
-/*****
- * insert_sort_list - sorts a list of integers
+/**
+ * insertion_sort_list - sorts a list of integers
  * using insertion sort algorithm
  *
  * @list: list of integers to be sorted
@@ -37,7 +37,7 @@ unsorted->next = current;
 unsorted->prev = current->prev;
 current->prev = unsorted;
 if (unsorted->prev != NULL)
-unsorted->prev->next = unsorted;       
+unsorted->prev->next = unsorted;
 else
 *list = unsorted;
 }
