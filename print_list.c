@@ -8,15 +8,12 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *current, *next, *prev, *sorted, *sorted_prev;
-
-    if (list == NULL || *list == NULL)
-        return;
-
-    current = *list;
-    next = current->next;
-
-    /* The sorted list starts with the first node */
+listint_t *current, *next, *sorted, *sorted_prev;
+if (list == NULL || *list == NULL)
+return;
+current = *list;
+next = current->next;
+/* The sorted list starts with the first node */
     sorted = current;
     sorted_prev = NULL;
 
