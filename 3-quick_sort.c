@@ -7,6 +7,7 @@
  * @first: The first index of the array subset.
  * @last: The last index of the array subset.
  * @size: The size of the array.
+ * _swap - Swaps two integers
  * Return: The position of the last element after sorting.
  */
 int lomuto_partition(int *array, ssize_t first, ssize_t last, size_t size)
