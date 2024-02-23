@@ -95,3 +95,14 @@ void _swap(int *a, int *b)
 	*a = *b;
 	*b = temp;
 }
+
+int main(void)
+{
+	int array[] = {9, 7, 5, 11, 12, 2, 14, 3, 10, 6};
+	size_t size = sizeof(array) / sizeof(array[0]);
+
+	quick_sort(array, size);
+	print_array(array, size);
+
+	return (0);
+}
