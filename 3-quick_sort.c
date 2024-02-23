@@ -68,7 +68,7 @@ void quick_sort(int *array, size_t size)
 	quick(array, 0, size - 1, size);
 }
 
-int main()
+int main(void)
 {
 	int array[] = {9, 7, 5, 11, 12, 2, 14, 3, 10, 6};
 	size_t size = sizeof(array) / sizeof(array[0]);
