@@ -50,7 +50,8 @@ end = *list;
 while (end->prev != start)
 {
 if (
-end->n < end->prev->n)
+end->n <
+end->prev->n)
 {
 /* Swap nodes */
 next = end->prev;
