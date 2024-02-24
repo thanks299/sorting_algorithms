@@ -111,9 +111,13 @@ void cocktail_sort_list(listint_t **list)
 				/* Print the list after each swap */
 				print_list(*list);
 			}
-
 			/* Move to the next node */
 			head = head->next;
+			
 		}
-
-		/* If no nodes were swapped,
+		/* If no nodes were swapped */
+		tail = tail_reversal(head, tail, *list);
+		head = tail;
+		v++;
+	}
+}
