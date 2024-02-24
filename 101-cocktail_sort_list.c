@@ -17,8 +17,7 @@ if (list == NULL || *list == NULL)
 return;
 start = *list;
 end = NULL;
-do
-{
+do {
 swapped = 0;
 /* Move from start to end of the list */
 current = start;
@@ -50,7 +49,8 @@ current = current->next;
 end = *list;
 while (end->prev != start)
 {
-if (end->n < end->prev->n)
+if (
+end->n < end->prev->n)
 {
 /* Swap nodes */
 next = end->prev;
