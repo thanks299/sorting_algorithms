@@ -31,8 +31,7 @@ void cocktail_sort_list(listint_t **list)
 {
     if (!list || !*list || !(*list)->next)
         return;
-
-    int swapped;
+    
     listint_t *current;
     listint_t *start = NULL;
     listint_t *end = NULL;
