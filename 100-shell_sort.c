@@ -12,7 +12,7 @@ void shell_sort(int *array, size_t size)
 size_t i, j, gap;
 int temp;
 /* Check if array is NULL or size is less than 2 */
-if (array == NULL || size < 2)
+if (array || size < 2)
 return;
 /* Calculate gap sequence */
 for (gap = 1; gap < size / 3; gap = gap * 3 + 1)
@@ -37,7 +37,7 @@ array[j] = temp;
 }
 /* Print array after each iteration of gap sequence */
 print_array(array, size);
-gap = (gap - 1) / 3;
+gap /= 3;
 printf("\n");
 }
 }
