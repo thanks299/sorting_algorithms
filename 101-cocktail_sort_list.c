@@ -112,7 +112,11 @@ void cocktail_sort_list(listint_t **list)
 				print_list(*list);
 			}
 			/* Move to the next node */
-			head = head->next;
+			else
+				head = head->next;
+			
+			if (head->next == NULL)
+				tail = head;
 			
 		}
 		/* If no nodes were swapped */
